@@ -2,30 +2,7 @@ import { __ } from '@wordpress/i18n';
 
 import { registerBlockType } from '@wordpress/blocks';
 import { useState } from '@wordpress/element';
-
-const editF = (props) => {
-
-    console.log(wp.element)
-
-    const { setAttributes } = props;
-    const { link, setLink } = useState(" ");
-
-    console.log(props.attributes.links)
-    console.log(setLink)
-
-    return (
-        <div>
-            <input onChange={event => setLink(event.target.value)} />
-            <button onClick={() => setAttributes({ links: [...props.attributes.links, link] })}>Add another link!</button>
-            <ul>
-                {
-                    props.attributes.links.forEach(link_src => (<li><a href={link_src}>Link</a></li>))
-                }
-            </ul>
-
-        </div>
-    );
-}
+import editF from './edit'
 
 registerBlockType('gutenberg-examples/links-addon', {
     title: __('links list', 'gutenberg-examples'),
@@ -38,7 +15,7 @@ registerBlockType('gutenberg-examples/links-addon', {
             default: []
         }
     },
-    edit: editF,
+    edit: (props) => editF(props),
     save: () => {
         return (
             <div>
