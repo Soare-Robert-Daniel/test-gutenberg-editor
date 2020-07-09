@@ -26,7 +26,6 @@
     "@wordpress/block-editor": "^4.3.0",
     "@wordpress/components": "^10.0.0",
     "@wordpress/element": "^2.16.0",
-    "colorette": "^1.2.1",
-    "lodash": "^4.17.16"
+    "lodash": "^4.17.19"
   }
 }
