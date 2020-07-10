@@ -7,14 +7,61 @@ import { registerBlockType } from '@wordpress/blocks';
 
 import edit from './edit'
 import save from './save'
+import './editor.scss'
 
-
-import transforms from './transforms';
-
-registerBlockType('gutenberg-examples/links-addon', {
-  title: __('Notes - Testing', 'gutenberg-examples'),
+registerBlockType('tutorial/recipe', {
+  title: __('Recipe - Testing', 'gutenberg-examples'),
   icon: 'universal-access-alt',
-  transforms,
+  category: 'common',
+  keywords: [
+    __('Fooh', 'recipe')
+  ],
+  support: {
+    html: false
+  },
+  attributes: {
+    ingredients: {
+      type: 'string',
+      source: 'text',
+      selector: '.ingredients-ph'
+    },
+    cooking_time: {
+      type: 'string',
+      source: 'text',
+      selector: '.cooking-time-ph'
+
+    },
+    utensils: {
+      type: 'string',
+      source: 'text',
+      selector: '.utensils-ph'
+
+    },
+    cooking_experience: {
+      type: 'string',
+      source: 'text',
+      selector: '.cooking-experience-ph',
+      default: 'beginner'
+    },
+    meal_type: {
+      type: 'string',
+      source: 'text',
+      selector: '.meal-type-ph',
+      default: 'breakfast'
+    },
+    text_alignment: {
+      type: 'string'
+    },
+    block_alignment: {
+      type: 'string',
+      default: 'wide' 
+    }
+  },
+  getEditWrapperProps: ({block_alignment}) => {
+    if('left' === block_alignment || 'right' === block_alignment || 'full' === block_alignment) {
+      return {'data-align': block_alignment}
+    }
+  },
   edit,
   save,
 });
