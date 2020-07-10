@@ -5,37 +5,16 @@
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
 
-import edit from './Components/Editor'
-import save from './Components/Save'
+import edit from './edit'
+import save from './save'
 
+
+import transforms from './transforms';
 
 registerBlockType('gutenberg-examples/links-addon', {
   title: __('Notes - Testing', 'gutenberg-examples'),
   icon: 'universal-access-alt',
-  category: 'layout',
-  attributes: {
-    notes: {
-      type: 'array',
-      default: [],
-    },
-  },
-  example: {
-
-    attributes: {
-      notes: [
-        {
-          id: "note_1",
-          content: "Buy apples",
-          done: false
-        },
-        {
-          id: "note_2",
-          content: "Buy toiler paper",
-          done: true
-        }
-      ]
-    }
-  },
+  transforms,
   edit,
   save,
 });
