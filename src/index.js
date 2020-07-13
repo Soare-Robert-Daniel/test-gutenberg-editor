@@ -9,6 +9,9 @@ import edit from './edit'
 import save from './save'
 import './editor.scss'
 
+import './richtext-block'
+import './night-mode-block'
+
 registerBlockType('tutorial/recipe', {
   title: __('Recipe - Testing', 'gutenberg-examples'),
   icon: 'universal-access-alt',
