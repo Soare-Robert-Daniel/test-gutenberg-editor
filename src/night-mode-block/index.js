@@ -7,10 +7,10 @@ import './editor.scss';
 
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
-import { BlockControls } from '@wordpress/block-editor'
-import { Toolbar, Button, Tooltip } from '@wordpress/components'
+import { BlockControls, InspectorControls } from '@wordpress/block-editor'
+import { Toolbar, Button, Tooltip, PanelBody, PanelRow, FormToggle } from '@wordpress/components'
 
-registerBlockType( 'udemy/night-mode', {
+registerBlockType( 'tutorial/night-mode', {
     title:                              __( 'Night Mode', 'recipe' ),
     description:                        __( 'Content with night mode.', 'recipe'),
     category:                           'common',
@@ -22,29 +22,46 @@ registerBlockType( 'udemy/night-mode', {
         }
     },
     edit: ( props ) => {
-        return (
-            <div className={ props.className }>
-                <BlockControls>
-                    <Toolbar>
-                        <Tooltip text={__('Night mode', 'recipe')}>
-                            <Button className={
-                                classnames(
-                                    'components-icon-buton',
-                                    'components-toolbar__control',
-                                    {'is-active': props.attributes.night_mode}
-                                )}
-                                onClick={ () => props.setAttributes({night_mode: !props.attributes.night_mode})}>
-                                    {btn_icon}
-                            </Button>
-                        </Tooltip>
-                    </Toolbar>
 
-                </BlockControls>
-                <div className={classnames(
-                    'content-example',
-                    {'night': props.attributes.night_mode}
-                )}>
-                    This is an example of a block with night mode.
+        const toggle_night_mode = () => props.setAttributes({night_mode: !props.attributes.night_mode})
+
+        return (
+            <div>
+                <InspectorControls>
+                    <PanelBody title={__('Night Mode', 'recipe')}>
+                        <PanelRow>
+                            <label htmlFor="tutorial-recipe-night-mode-toggle">
+                                {__('Night Mode', 'recipe')}
+                            </label>
+                            <FormToggle id="tutorial-recipe-night-mode-toggle"
+                                        checked={props.attributes.night_mode}
+                                        onChange={toggle_night_mode}/>
+                        </PanelRow>
+                    </PanelBody>
+                </InspectorControls>
+                <div className={ props.className }>
+                    <BlockControls>
+                        <Toolbar>
+                            <Tooltip text={__('Night mode', 'recipe')}>
+                                <Button className={
+                                    classnames(
+                                        'components-icon-buton',
+                                        'components-toolbar__control',
+                                        {'is-active': props.attributes.night_mode}
+                                    )}
+                                    onClick={ toggle_night_mode }>
+                                        {btn_icon}
+                                </Button>
+                            </Tooltip>
+                        </Toolbar>
+
+                    </BlockControls>
+                    <div className={classnames(
+                        'content-example',
+                        {'night': props.attributes.night_mode}
+                    )}>
+                        This is an example of a block with night mode.
+                    </div>
                 </div>
             </div>
         );
