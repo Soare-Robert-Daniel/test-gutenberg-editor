@@ -17,7 +17,7 @@ import {
 registerBlockType('udemy/inspector-controls-example', {
     title: __('Inspector Controls', 'recipe'),
     description: __('Inspector Controls.', 'recipe'),
-    category: 'common',
+    category: 'tutorial',
     icon: 'universal-access-alt',
     attributes: {
         textarea_input: {

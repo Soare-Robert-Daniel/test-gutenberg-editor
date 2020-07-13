@@ -14,7 +14,7 @@ import { Button, Dashicon } from '@wordpress/components'
 registerBlockType('tutorial/media-upload', {
     title: __('Image Media Upload', 'recipe'),
     description: __('Image Media Upload', 'recipe'),
-    category: 'common',
+    category: 'tutorial',
     icon: 'universal-access-alt',
     attributes: {
         img_ID: {

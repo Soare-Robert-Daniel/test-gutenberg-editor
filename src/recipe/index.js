@@ -12,7 +12,7 @@ import './editor.scss'
 registerBlockType('tutorial/recipe', {
   title: __('Recipe - Testing', 'gutenberg-examples'),
   icon: 'universal-access-alt',
-  category: 'common',
+  category: 'tutorial',
   keywords: [
     __('Fooh', 'recipe')
   ],

@@ -1,6 +1,27 @@
-.wp-block-udemy-night-mode .night{background-color:#333;color:#ddd}
+.wp-block-udemy-night-mode .night {
+  background-color: #333;
+  color: #ddd; }
 
-.wp-block-tutorial-media-upload .image-ctr{position:relative}.wp-block-tutorial-media-upload .btn-remove{background-color:#FF564D;padding:5px 5px 0;position:absolute;top:0;left:0}.wp-block-tutorial-media-upload .btn-remove svg{background:red;fill:white}
+.wp-block-tutorial-media-upload .image-ctr {
+  position: relative; }
 
-.wp-block-tutorial-recipe ul.list-unstyled{padding-left:0;list-style:none}.wp-block-tutorial-recipe li{margin:0;padding:0}
+.wp-block-tutorial-media-upload .btn-remove {
+  background-color: #FF564D;
+  padding: 5px 5px 0;
+  position: absolute;
+  top: 0;
+  left: 0; }
+  .wp-block-tutorial-media-upload .btn-remove svg {
+    background: red;
+    fill: white; }
 
+.wp-block-tutorial-recipe ul.list-unstyled {
+  padding-left: 0;
+  list-style: none; }
+
+.wp-block-tutorial-recipe li {
+  margin: 0;
+  padding: 0; }
+
+
+/*# sourceMappingURL=index.css.map*/

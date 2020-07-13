@@ -13,7 +13,7 @@ import { Toolbar, Button, Tooltip, PanelBody, PanelRow, FormToggle } from '@word
 registerBlockType( 'tutorial/night-mode', {
     title:                              __( 'Night Mode', 'recipe' ),
     description:                        __( 'Content with night mode.', 'recipe'),
-    category:                           'common',
+    category:                           'tutorial',
     icon:                               'universal-access-alt',
     attributes: {
         night_mode: {

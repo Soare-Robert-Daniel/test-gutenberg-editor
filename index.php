@@ -28,4 +28,46 @@ function gutenberg_examples() {
     ) );
  
 }
+
 add_action( 'init', 'gutenberg_examples' );
+
+add_theme_support( 'editor-color-palette', array(
+    array(
+        'name' => __( 'strong magenta', 'themeLangDomain' ),
+        'slug' => 'strong-magenta',
+        'color' => '#a156b4',
+    ),
+    array(
+        'name' => __( 'light grayish magenta', 'themeLangDomain' ),
+        'slug' => 'light-grayish-magenta',
+        'color' => '#d0a5db',
+    ),
+    array(
+        'name' => __( 'very light gray', 'themeLangDomain' ),
+        'slug' => 'very-light-gray',
+        'color' => '#eee',
+    ),
+    array(
+        'name' => __( 'very dark gray', 'themeLangDomain' ),
+        'slug' => 'very-dark-gray',
+        'color' => '#444',
+    ),
+) );
+
+function my_plugin_block_categories( $categories, $post ) {
+    if ( $post->post_type !== 'post' ) {
+        return $categories;
+    }
+    return array_merge(
+        $categories,
+        array(
+            array(
+                'slug' => 'tutorial',
+                'title' => __( 'My tutorial', 'recipe' ),
+                'icon'  => 'wordpress',
+            ),
+        )
+    );
+}
+
+add_filter( 'block_categories', 'my_plugin_block_categories', 10, 2 );
